@@ -1,0 +1,45 @@
+ .espacamento-header{
+   margin-top:56px;
+ }
+ .btn-gravar{
+   border-radius: 12px;
+   float: left;
+ }
+ .btn-excluir{
+   border-radius:12px;
+   float: right;
+ }
+ 
+ .margem-rodape{
+   float: right;
+ }
+  th{
+    background-color: dimgrey;
+    color: #e0e3e7;
+    overflow-x: scroll;
+  }
+  .pesquisaCampo{
+    margin-bottom: 15px;
+  }
+  .espacamento-listbox{
+    margin-bottom: ;
+  }
+  .linha-foco{
+    cursor: pointer;
+  }
+  .tx60{
+    maxlength:"60";
+  }
+  .espacamento-form{
+    margin-top:20px;
+  }
+  .divisor-secao{
+    background-color: #f6f8fa;
+    padding: 15px;
+  }
+  h6.espacamento-secao{
+    margin-top: 20px;
+  }
+  .espacamento-lateral{
+    margin-left: 5px;
+  }

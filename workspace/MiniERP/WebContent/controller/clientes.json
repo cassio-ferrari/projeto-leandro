@@ -1,0 +1,15 @@
+{
+    "clientesCadastradosJSon":
+    [
+        {"codigocliente": "1", "nomecliente": "Nome fantasia 1", "cnpjcliente": "00.000.000/0000-00", "enderecocliente": "nome da rua", "numeroenderecocliente": "número da rua", 
+            "telefone1": "(xx) xxxx-xxxx", "telefone2": "(xx) xxxx-xxxx","emailcliente": "email@domínio.com", "vendedorcliente": ""},
+        {"codigocliente": "2","nomecliente": "Nome fantasia 2","cnpjcliente": "00.000.000/0000-00", "enderecocliente": "nome da rua", "numeroenderecocliente": "número da rua ", 
+            "telefone1": "(xx) xxxx-xxxx", "telefone2": "(xx) xxxx-xxxx","emailcliente": "email@domínio.com", "vendedorcliente": ""},
+        {"codigocliente": "3","nomecliente": "Nome fantasia 3","cnpjcliente": "00.000.000/0000-00", "enderecocliente": "nome da rua", "numeroenderecocliente": "número da rua ", 
+            "telefone1": "(xx) xxxx-xxxx", "telefone2": "(xx) xxxx-xxxx","emailcliente": "email@domínio.com", "vendedorcliente": ""},
+        {"codigocliente": "4","nomecliente": "Nome fantasia 4","cnpjcliente": "00.000.000/0000-00", "enderecocliente": "nome da rua", "numeroenderecocliente": "número da rua ",
+            "telefone1": "(xx) xxxx-xxxx", "telefone2": "(xx) xxxx-xxxx","emailcliente": "email@domínio.com", "vendedorcliente": ""},
+        {"codigocliente": "5","nomecliente": "Nome fantasia 5","cnpjcliente": "00.000.000/0000-00", "enderecocliente": "nome da rua", "numeroenderecocliente": "número da rua ", 
+            "telefone1": "(xx) xxxx-xxxx", "telefone2": "(xx) xxxx-xxxx","emailcliente": "email@domínio.com", "vendedorcliente": ""}
+    ]
+}
