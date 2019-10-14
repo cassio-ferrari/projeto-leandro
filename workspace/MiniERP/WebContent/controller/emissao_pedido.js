@@ -1,11 +1,20 @@
 var emissaoPedidoModulo = angular.module('emissaoPedidoModulo',[]);
 
 emissaoPedidoModulo.controller("emissaoPedidosController", function($scope, $http){
-    urlEmissaoPedidosListaRest = '/MiniERP/rest/pedidovenda';
+    urlEmissaoPedidosListaRest = '/MiniERP/rest/pedido';
+    urlClientesListaRest = '/MiniERP/rest/cliente';
+    urlProdutosListaRest = '/MiniERP/rest/produto';
+
     
     $scope.listagemPedidosVenda = function(){
         $http.get(urlEmissaoPedidosListaRest).then(function (response){
             $scope.pedidosLista = response.data;
+            }
+        ), console.error();
+    }
+    $scope.listagemCliente = function(){
+        $http.get(urlClientesListaRest).then(function (response){
+            $scope.clienteLista = response.data;
             }
         ), console.error();
     }
