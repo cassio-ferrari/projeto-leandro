@@ -24,8 +24,8 @@ produtosModulo.controller("produtosController", function($scope, $http){
         if($scope.produto.codigoproduto == undefined){
             //$scope.produto.codigoproduto = $scope.produtosLista.length + 1;
             $http({method: 'POST', url: urlProdutosListaRest, data:$scope.produto}),console.error(),
-            $scope.limparProduto(),
-            $scope.listagemProdutos();
+            $scope.listagemProdutos(),
+            $scope.limparProduto();            
         }else{
             $http({method: 'PUT', url: urlProdutosListaRest, data:$scope.produto}), console.error(),
             $scope.limparProduto(),

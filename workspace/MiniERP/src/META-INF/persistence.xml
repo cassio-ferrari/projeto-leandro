@@ -3,6 +3,12 @@
 	<persistence-unit name="MiniERPPersistenceUnit">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/PostgresDBS</jta-data-source>
+		<class>br.com.smanager.minierp.model.model.ClienteModel</class>
+		<class>br.com.smanager.minierp.model.model.ParcelaPedidoModel</class>
+		<class>br.com.smanager.minierp.model.model.PedidoModel</class>
+		<class>br.com.smanager.minierp.model.model.PedidoProdutoModel</class>
+		<class>br.com.smanager.minierp.model.model.ProdutoModel</class>
+		<class>br.com.smanager.minierp.model.model.VendedorModel</class>
 		<properties>
 			 <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			 <!-- <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpa_hibernate_db" ></property> -->

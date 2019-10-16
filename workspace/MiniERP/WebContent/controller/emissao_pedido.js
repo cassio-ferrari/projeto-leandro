@@ -9,12 +9,14 @@ emissaoPedidoModulo.controller("emissaoPedidosController", function($scope, $htt
     $scope.listagemPedidosVenda = function(){
         $http.get(urlEmissaoPedidosListaRest).then(function (response){
             $scope.pedidosLista = response.data;
+            alert('lista pedidos');
             }
         ), console.error();
     }
     $scope.listagemCliente = function(){
         $http.get(urlClientesListaRest).then(function (response){
             $scope.clienteLista = response.data;
+            alert('lista cliente');
             }
         ), console.error();
     }
@@ -28,6 +30,15 @@ emissaoPedidoModulo.controller("emissaoPedidosController", function($scope, $htt
     $scope.limparPedido = function(){
         $scope.pedido = null;
     }
+
+    //simulando inclusão item
+    $scope.incluirProduto = function(){
+        alert('incluindo produto');
+        var produtoNovo = {'codigoproduto':$scope.codigoproduto, 'descricaoproduto':$scope.descricaoproduto, 'qtdepedidoproduto':$scope.qtdepedidoproduto, 'valorunitariopedidoproduto':$scope.valorunitariopedidoproduto, 'valortotalpedidoproduto':$scope.qtdepedidoproduto*$scope.valorunitariopedidoproduto};
+        $scope.pedido.produtoModel.push(produtoNovo);
+    }
+
+
 
     $scope.gravarPedido = function(){
         if($scope.pedido.codigopedido == undefined){
