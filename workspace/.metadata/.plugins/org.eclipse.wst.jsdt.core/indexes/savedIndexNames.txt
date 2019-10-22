@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+/opt/rh/projeto-leandro/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-1190117292.index
-3593888513.index
-430665487.index
-2804454035.index
-3794868898.index
-3133715732.index
-2387660159.index
