@@ -63,7 +63,7 @@ public class PedidoModel implements Serializable{
 			name="pedido_produto",
 			joinColumns = {@JoinColumn(name = "numero_pedido")},
 			inverseJoinColumns = {@JoinColumn(name = "codigo_produto")})
-	private List<ProdutoModel> produtos;
+	private List<PedidoProdutoModel> produtos;
 	
 	@ManyToOne
 	@JoinColumn(name = "cliente", referencedColumnName = "codigo_cliente", nullable = false)
@@ -169,19 +169,19 @@ public class PedidoModel implements Serializable{
 		this.totaldescontopedido = totaldescontopedido;
 	}
 
-	public List<ProdutoModel> getProdutos() {
+	public List<PedidoProdutoModel> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<ProdutoModel> produtos) {
+	public void setProdutos(List<PedidoProdutoModel> produtos) {
 		this.produtos = produtos;
 	}
-	
-	public PedidoModel() {}
 
+	public PedidoModel() {}
 	public PedidoModel(Integer numeropedido, Calendar datapedido, String operacaopedido, Float pesobrutopedido,
 			Float pesoliquidopedido, Float valortotalprodutopedido, Float valortotalpedido, Float fretepedido,
-			Float valorseguro, Float totaldescontopedido, List<ProdutoModel> produtos) {
+			Float valorseguro, Float totaldescontopedido, List<PedidoProdutoModel> produtos, ClienteModel clienteModel) {
+		super();
 		this.numeropedido = numeropedido;
 		this.datapedido = datapedido;
 		this.operacaopedido = operacaopedido;
@@ -193,6 +193,15 @@ public class PedidoModel implements Serializable{
 		this.valorseguro = valorseguro;
 		this.totaldescontopedido = totaldescontopedido;
 		this.produtos = produtos;
+		this.clienteModel = clienteModel;
+	}
+	//teste unitário inclusão backend
+	public PedidoModel(Integer numeropedido, Float valortotalpedido, List<PedidoProdutoModel> produtos, ClienteModel clienteModel) {
+		super();
+		this.numeropedido = numeropedido;
+		this.valortotalpedido = valortotalpedido;
+		this.produtos = produtos;
+		this.clienteModel = clienteModel;
 	}
 
 	@Override
