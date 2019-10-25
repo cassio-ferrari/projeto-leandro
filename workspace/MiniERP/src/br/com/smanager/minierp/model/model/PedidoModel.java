@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -58,28 +60,18 @@ public class PedidoModel implements Serializable{
 	Float totaldescontopedido;
 		
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
+	//@Fetch(FetchMode.SUBSELECT)
 	@JoinTable(
 			name="pedido_produto",
-			joinColumns = {@JoinColumn(name = "numero_pedido")},
-			inverseJoinColumns = {@JoinColumn(name = "codigo_produto")})
-	private List<PedidoProdutoModel> produtos;
+			joinColumns = {@JoinColumn(name = "codigo_produto")},
+			inverseJoinColumns = {@JoinColumn(name = "numero_pedido")})
+	private List<ProdutoModel> produtos;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente", referencedColumnName = "codigo_cliente", nullable = false)
 	ClienteModel clienteModel;
 	
-	/*
-	@Column(table = "pedido_produto", name = "itemtotal_produto", nullable = true)
-	Float itemtotalproduto;
-	
-	@Column(table = "pedido_produto", name = "itemquantidade_produto", nullable = true)
-	Float itemquantidadeproduto;
-	
-	@Column(table = "pedido_produto", name = "itemunitario_produto", nullable = true)
-	Float itemunitarioproduto;
-	*/
-
 	public ClienteModel getClienteModel() {
 		return clienteModel;
 	}
@@ -169,18 +161,30 @@ public class PedidoModel implements Serializable{
 		this.totaldescontopedido = totaldescontopedido;
 	}
 
-	public List<PedidoProdutoModel> getProdutos() {
+	public List<ProdutoModel> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<PedidoProdutoModel> produtos) {
+	public void setProdutos(List<ProdutoModel> produtos) {
 		this.produtos = produtos;
 	}
 
 	public PedidoModel() {}
+
+	//teste unitário inclusão backend
+	/*
+	public PedidoModel(Integer numeropedido, Float valortotalpedido, List<PedidoProdutoModel> produtos, ClienteModel clienteModel) {
+		super();
+		this.numeropedido = numeropedido;
+		this.valortotalpedido = valortotalpedido;
+		this.produtos = produtos;
+		this.clienteModel = clienteModel;
+	}*/
+
 	public PedidoModel(Integer numeropedido, Calendar datapedido, String operacaopedido, Float pesobrutopedido,
 			Float pesoliquidopedido, Float valortotalprodutopedido, Float valortotalpedido, Float fretepedido,
-			Float valorseguro, Float totaldescontopedido, List<PedidoProdutoModel> produtos, ClienteModel clienteModel) {
+			Float valorseguro, Float totaldescontopedido, List<PedidoProdutoModel> produtos,
+			ClienteModel clienteModel) {
 		super();
 		this.numeropedido = numeropedido;
 		this.datapedido = datapedido;
@@ -192,14 +196,6 @@ public class PedidoModel implements Serializable{
 		this.fretepedido = fretepedido;
 		this.valorseguro = valorseguro;
 		this.totaldescontopedido = totaldescontopedido;
-		this.produtos = produtos;
-		this.clienteModel = clienteModel;
-	}
-	//teste unitário inclusão backend
-	public PedidoModel(Integer numeropedido, Float valortotalpedido, List<PedidoProdutoModel> produtos, ClienteModel clienteModel) {
-		super();
-		this.numeropedido = numeropedido;
-		this.valortotalpedido = valortotalpedido;
 		this.produtos = produtos;
 		this.clienteModel = clienteModel;
 	}

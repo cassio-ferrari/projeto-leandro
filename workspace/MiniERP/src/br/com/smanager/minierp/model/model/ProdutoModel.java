@@ -1,7 +1,7 @@
 package br.com.smanager.minierp.model.model;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,6 +49,9 @@ public class ProdutoModel implements Serializable{
 	
 	@Column(name = "unidade_produto", nullable = true, length = 6)
 	String unidadeproduto;
+	
+	@ManyToMany(mappedBy="produto")
+    private List<PedidoModel> pedidos;
 	
 	public ProdutoModel() {}
 	

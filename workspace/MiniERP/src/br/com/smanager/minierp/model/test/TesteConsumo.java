@@ -19,22 +19,9 @@ public class TesteConsumo{
 	static ClienteModel clienteModel = new ClienteModel();
 	
 	public void inserePedido(){
-		
-		produtoModel1.setCodigoproduto(1);
-		PedidoProdutoModel pedidoProdutoModelItem1 = new PedidoProdutoModel(produtoModel1, 10.00f, 10.00f, 100.00f);
-		pedidoProdutoModel.add(pedidoProdutoModelItem1);
-				
-		produtoModel2.setCodigoproduto(2);
-		PedidoProdutoModel pedidoProdutoModelItem2 = new PedidoProdutoModel(produtoModel2, 10f, 10.00f, 100.00f);
-		pedidoProdutoModel.add(pedidoProdutoModelItem2);
-		
-		clienteModel.setCodigocliente(1);
-		
-		pedidoModel.setClienteModel(clienteModel);
-		pedidoModel.setProdutos(pedidoProdutoModel);
-		pedidoModel.setValortotalpedido(200.00f);
-		
-		PedidoFacede gravarPedido = new PedidoFacede();
-		gravarPedido.gravarPedido(pedidoModel);
+		System.out.println("nada para inserir");
+	}
+	public void consultaPedido() {
+		System.out.println("buscando pedido");
 	}
 }
