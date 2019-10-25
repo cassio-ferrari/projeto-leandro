@@ -1,33 +1,31 @@
 package br.com.smanager.minierp.model.model;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
-@Entity
+@Entity //(name = "PedidoProdutoModel")
 @Table(name = "pedido_produto")
-public class PedidoProdutoModel implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class PedidoProdutoModel {
 	
-	@Id
-	@Column(name = "codigo_pedidoproduto")
-	private Long  codigoitempedido;
+	//@Id
+	//@Column(name = "codigo_pedidoproduto")
+	@EmbeddedId
+	private PedidoProdutoIdModel pedidoProdutoIdModel;
 	
-	@ManyToOne
-	@JoinColumn(name = "numeropedido_pedidoproduto", nullable = false, referencedColumnName = "numero_pedido")
-	PedidoModel pedidoModel;
+	//@JoinColumn(name = "numeropedido_pedidoproduto", nullable = false, referencedColumnName = "numero_pedido")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@MapsId("numeropedido")
+	private PedidoModel pedidoModel;
 	
-	@ManyToOne
-	@JoinColumn(name = "produto_pedidoproduto", nullable = false, referencedColumnName = "codigo_produto")
+	//@JoinColumn(name = "produto_pedidoproduto", nullable = false, referencedColumnName = "codigo_produto")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@MapsId("codigoproduto")
 	ProdutoModel produtoModel;
 	
 	@Column(name = "qtde_pedidoproduto", nullable = false)
@@ -42,4 +40,48 @@ public class PedidoProdutoModel implements Serializable{
 	@Column(name = "unidade_pedidoproduto", nullable = true, length = 6)
 	String unidadepedidoproduto;
 
+	public PedidoProdutoModel() {}
+	public PedidoProdutoModel(PedidoModel pedidoModel,
+			ProdutoModel produtoModel, Float qtdepedidoproduto, Float valorunitariopedidoproduto,
+			Float valortotalpedidoproduto, String unidadepedidoproduto) {
+		super();
+		this.pedidoProdutoIdModel = new PedidoProdutoIdModel(pedidoModel.getNumeropedido(), produtoModel.getCodigoproduto());
+		this.pedidoModel = pedidoModel;
+		this.produtoModel = produtoModel;
+		this.qtdepedidoproduto = qtdepedidoproduto;
+		this.valorunitariopedidoproduto = valorunitariopedidoproduto;
+		this.valortotalpedidoproduto = valortotalpedidoproduto;
+		this.unidadepedidoproduto = unidadepedidoproduto;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((pedidoModel == null) ? 0 : pedidoModel.hashCode());
+		result = prime * result + ((produtoModel == null) ? 0 : produtoModel.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PedidoProdutoModel other = (PedidoProdutoModel) obj;
+		if (pedidoModel == null) {
+			if (other.pedidoModel != null)
+				return false;
+		} else if (!pedidoModel.equals(other.pedidoModel))
+			return false;
+		if (produtoModel == null) {
+			if (other.produtoModel != null)
+				return false;
+		} else if (!produtoModel.equals(other.produtoModel))
+			return false;
+		return true;
+	}
+
+	
 }

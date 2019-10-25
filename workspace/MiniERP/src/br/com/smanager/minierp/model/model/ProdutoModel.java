@@ -1,14 +1,18 @@
 package br.com.smanager.minierp.model.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,7 +31,7 @@ public class ProdutoModel implements Serializable{
 	@Id //indica a chave primaria
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //gerar código automático
 	@Column(name="codigo_produto")
-	Integer codigoproduto;
+	Long codigoproduto;
 	
 	@Column(name="descricao_produto", length = 50, nullable = false)
 	String descricaoproduto;
@@ -50,9 +54,12 @@ public class ProdutoModel implements Serializable{
 	@Column(name = "unidade_produto", nullable = true, length = 6)
 	String unidadeproduto;
 	
+	@OneToMany(mappedBy = "produtoModel", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	private List<PedidoProdutoModel> pedido;
+	
 	public ProdutoModel() {}
 	
-	public ProdutoModel(Integer codigoproduto, String descricaoproduto, Float precoproduto,
+	public ProdutoModel(Long codigoproduto, String descricaoproduto, Float precoproduto,
 			String codigofabricanteproduto, String codigofornecedorproduto, String eanproduto, String ncmproduto, String unidadeproduto) {
 		this.codigoproduto = codigoproduto;
 		this.descricaoproduto = descricaoproduto;
@@ -74,11 +81,11 @@ public class ProdutoModel implements Serializable{
 	}
 
 	//getter e setter para acesso as variáveis
-	public Integer getCodigoproduto() {
+	public Long getCodigoproduto() {
 		return codigoproduto;
 	}
 
-	public void setCodigoproduto(Integer codigoproduto) {
+	public void setCodigoproduto(Long codigoproduto) {
 		this.codigoproduto = codigoproduto;
 	}
 

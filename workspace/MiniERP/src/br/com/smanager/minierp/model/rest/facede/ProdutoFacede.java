@@ -21,6 +21,7 @@ import br.com.smanager.minierp.model.model.ProdutoModel;
 			MediaType.APPLICATION_XML})
 @Consumes({MediaType.APPLICATION_JSON})
 public class ProdutoFacede {
+	
 	@Inject
 	private ProdutoDaoImplements produtoDaoImplements;
 	
@@ -41,7 +42,7 @@ public class ProdutoFacede {
 	
 	@DELETE
 	@Path("/{codigoproduto}")
-	public void deletarProduto(@PathParam("codigoproduto") Integer codigoProduto) {
+	public void deletarProduto(@PathParam("codigoproduto") Long codigoProduto) {
 		ProdutoModel produtoModel = new ProdutoModel();
 		produtoModel.setCodigoproduto(codigoProduto);
 		produtoDaoImplements.deletarProduto(produtoModel);

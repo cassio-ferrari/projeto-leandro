@@ -32,8 +32,7 @@ public class PedidoFacede {
 	
 	@POST
 	public PedidoModel gravarPedido(PedidoModel pedidoNovo) {
-		pedidoDaoImplements.gravarPedido(pedidoNovo);
-		return pedidoNovo;
+		return pedidoDaoImplements.gravarPedido(pedidoNovo);
 	}
 	
 	@PUT
@@ -43,7 +42,7 @@ public class PedidoFacede {
 	
 	@DELETE
 	@Path("/{numeropedido}")
-	public void deletarPedido(@PathParam("numeropedido") Integer pedidoDeletado) {
+	public void deletarPedido(@PathParam("numeropedido") Long pedidoDeletado) {
 		PedidoModel pedidoDeletar = new PedidoModel();
 		pedidoDeletar.setNumeropedido(pedidoDeletado);
 		pedidoDaoImplements.deletarPedido(pedidoDeletar);
