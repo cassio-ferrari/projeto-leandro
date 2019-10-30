@@ -1,16 +1,29 @@
 var emissaoPedidoModulo = angular.module('emissaoPedidoModulo',[]);
 
-emissaoPedidoModulo.controller("emissaoPedidosController", function($scope, $http){
-    urlEmissaoPedidosListaRest = '/MiniERP/rest/pedidovenda';
+emissaoPedidoModulo.controller("emissaoPedidoController", function($scope, $http){
+    urlEmissaoPedidosListaRest = '/MiniERP/rest/pedido';
+    urlClientesListaRest = '/MiniERP/rest/cliente';
+    urlProdutosListaRest = '/MiniERP/rest/produto';
+
     
     $scope.listagemPedidosVenda = function(){
         $http.get(urlEmissaoPedidosListaRest).then(function (response){
             $scope.pedidosLista = response.data;
+            alert('lista pedidos');
             }
         ), console.error();
     }
     
     $scope.listagemPedidosVenda();
+
+
+    $scope.listagemCliente = function(){
+        $http.get(urlClientesListaRest).then(function (response){
+            alert('lista cliente');
+            $scope.clienteLista = response.data;
+            }
+        ), console.error();
+    }
 
     $scope.selecionaPedido = function(pedidoSelecionado){
         $scope.pedido = pedidoSelecionado;
@@ -19,6 +32,15 @@ emissaoPedidoModulo.controller("emissaoPedidosController", function($scope, $htt
     $scope.limparPedido = function(){
         $scope.pedido = null;
     }
+
+    //simulando inclusão item
+    $scope.incluirProduto = function(){
+        alert('incluindo produto');
+        var produtoNovo = {'codigoproduto':$scope.codigoproduto, 'descricaoproduto':$scope.descricaoproduto, 'qtdepedidoproduto':$scope.qtdepedidoproduto, 'valorunitariopedidoproduto':$scope.valorunitariopedidoproduto, 'valortotalpedidoproduto':$scope.qtdepedidoproduto*$scope.valorunitariopedidoproduto};
+        $scope.pedido.produtoModel.push(produtoNovo);
+    }
+
+
 
     $scope.gravarPedido = function(){
         if($scope.pedido.codigopedido == undefined){

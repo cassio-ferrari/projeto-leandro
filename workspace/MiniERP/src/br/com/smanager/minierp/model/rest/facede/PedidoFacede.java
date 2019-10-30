@@ -1,5 +1,6 @@
 package br.com.smanager.minierp.model.rest.facede;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
