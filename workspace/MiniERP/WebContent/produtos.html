@@ -9,9 +9,10 @@
     <link rel="stylesheet" type="text/css" href="css/carousel.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/complemento.css" />
-    <link rel="shortcut icon" href="smanager.png">
+    <link rel="shortcut icon" href="imagens/smanager.png">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="controller/produtos.js"></script>
+    <script src="controller/clientes-web.js"></script>
     <style>
     
       .bd-placeholder-img {
@@ -69,7 +70,7 @@
                   <th>Cód. Fornecedor</th>
                   <th>Preço</th>
                   <th>Und medida</th>
-                  <tr ng-repeat="listaProdutos in produtosLista | filter:pesquisaProdutos" ng-click="selecionaProduto(listaProdutos)">
+                  <tr ng-repeat="listaProdutos in produtosLista | filter:pesquisaProdutos | orderBy: 'codigoproduto'" ng-click="selecionaProduto(listaProdutos)">
                     <td>{{listaProdutos.codigoproduto}}</td>
                     <td>{{listaProdutos.descricaoproduto}}</td>
                     <td>{{listaProdutos.codigofabricanteproduto}}</td>

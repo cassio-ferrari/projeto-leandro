@@ -82,6 +82,54 @@ public class PedidoProdutoModel {
 			return false;
 		return true;
 	}
+	
+	
+	
+	public PedidoProdutoIdModel getPedidoProdutoIdModel() {
+		return pedidoProdutoIdModel;
+	}
+	public void setPedidoProdutoIdModel(PedidoProdutoIdModel pedidoProdutoIdModel) {
+		this.pedidoProdutoIdModel = pedidoProdutoIdModel;
+	}
+	/*
+	public PedidoModel getPedidoModel() {
+		return pedidoModel;
+	}
+	public void setPedidoModel(PedidoModel pedidoModel) {
+		this.pedidoModel = pedidoModel;
+	}
+	
+	public ProdutoModel getProdutoModel() {
+		return produtoModel;
+	}
+	public void setProdutoModel(ProdutoModel produtoModel) {
+		this.produtoModel = produtoModel;
+	}*/
+	public Float getQtdepedidoproduto() {
+		return qtdepedidoproduto;
+	}
+	public void setQtdepedidoproduto(Float qtdepedidoproduto) {
+		this.qtdepedidoproduto = qtdepedidoproduto;
+	}
+	public Float getValorunitariopedidoproduto() {
+		return valorunitariopedidoproduto;
+	}
+	public void setValorunitariopedidoproduto(Float valorunitariopedidoproduto) {
+		this.valorunitariopedidoproduto = valorunitariopedidoproduto;
+	}
+	public Float getValortotalpedidoproduto() {
+		return valortotalpedidoproduto;
+	}
+	public void setValortotalpedidoproduto(Float valortotalpedidoproduto) {
+		this.valortotalpedidoproduto = valortotalpedidoproduto;
+	}
+	public String getUnidadepedidoproduto() {
+		return unidadepedidoproduto;
+	}
+	public void setUnidadepedidoproduto(String unidadepedidoproduto) {
+		this.unidadepedidoproduto = unidadepedidoproduto;
+	}
 
+	
 	
 }

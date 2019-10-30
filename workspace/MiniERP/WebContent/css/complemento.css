@@ -13,10 +13,12 @@
  .margem-rodape{
    float: right;
  }
+ table{
+  overflow-x: scroll;
+ }
   th{
     background-color: dimgrey;
     color: #e0e3e7;
-    overflow-x: scroll;
   }
   .pesquisaCampo{
     margin-bottom: 15px;
